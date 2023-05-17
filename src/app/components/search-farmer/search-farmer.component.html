@@ -1,0 +1,38 @@
+<div class="container mt-5">
+    <h1 class="mb-4">Search Results</h1>
+    <form [formGroup]="searchForm">
+        <div class="input-group">
+            <input formControlName="search" type="text" class="form-control" placeholder="Search Name">
+            <button (click)="onSearch()" class="btn btn-success" id="button-search">Go</button>
+            <button (click)="onLoad()" class="btn btn-primary" id="button-load-all">Load All</button>
+        </div>
+    </form>
+
+    <div>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th> First Name </th>
+                <th> Last Name </th>
+                <th> Email </th>
+                <th> Address </th>
+                <th> Contact Number </th>
+                <th> Actions </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let farmer of farmers; let i = index">
+                <td> {{ farmer.firstName }} </td>
+                <td> {{ farmer.lastName }} </td>
+                <td> {{ farmer.email }} </td>
+                <td> {{ farmer.address }} </td>
+                <td> {{ farmer.contactNumber}} </td>
+                <td>
+                    <button (click)="onUpdate(i)" class="btn btn-info"> Update </button>
+                    <button (click)="onDelete(i)" class="btn btn-danger" style="margin-left: 10px"> Delete </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
