@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Farmer } from 'src/app/common/farmer';
 import { FarmerStorageService } from 'src/app/services/farmer-storage.service';
 import { FarmerService } from 'src/app/services/farmer.service';
+import Swal from 'sweetalert2';
 
 
 
@@ -51,6 +52,7 @@ export class UpdateFarmerComponent {
     this.farmerStorageService.updateFarmer(updatedFarmer).subscribe();
 
     this.router.navigate(["/search"]);
+    Swal.fire("Farmer Successfuly Updated", "Done", "success");
   }
 
   public get firstName() {

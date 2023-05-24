@@ -57,7 +57,6 @@ export class SearchFarmerComponent implements OnInit {
 
   onUpdate(index: number) {
     this.router.navigate([`/update/${index}`]);
-    Swal.fire("Farmer Successfuly Updated", "Done", "success");
   }
 
   
