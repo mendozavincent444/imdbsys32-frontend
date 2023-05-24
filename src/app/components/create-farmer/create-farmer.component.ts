@@ -34,7 +34,7 @@ export class CreateFarmerComponent implements OnInit {
       this.contactNumber.value
     );
     
-    Swal.fire("Farmer Successfuly Added", "Done", "success");
+    Swal.fire("Farmer Successfully Added", "Done", "success");
     this.farmerStorageService.storeFarmer(newFarmer).subscribe();
     this.addFarmerForm.reset();
   }

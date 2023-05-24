@@ -50,7 +50,7 @@ export class SearchFarmerComponent implements OnInit {
     this.farmerStorageService.deleteFarmer(this.farmers.at(index)).subscribe();
     this.farmers.splice(index, 1);
     this.farmerService.updateFarmers(this.farmers);
-    Swal.fire("Farmer Successfuly Deleted", "Done", "success");
+    Swal.fire("Farmer Successfully Deleted", "Done", "success");
   }
 
 

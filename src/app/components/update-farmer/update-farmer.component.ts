@@ -52,7 +52,7 @@ export class UpdateFarmerComponent {
     this.farmerStorageService.updateFarmer(updatedFarmer).subscribe();
 
     this.router.navigate(["/search"]);
-    Swal.fire("Farmer Successfuly Updated", "Done", "success");
+    Swal.fire("Farmer Successfully Updated", "Done", "success");
   }
 
   public get firstName() {
