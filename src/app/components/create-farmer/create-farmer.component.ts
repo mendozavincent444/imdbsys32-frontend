@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Farmer } from 'src/app/common/farmer';
 import { FarmerStorageService } from 'src/app/services/farmer-storage.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-create-farmer',
   templateUrl: './create-farmer.component.html',
@@ -34,8 +34,8 @@ export class CreateFarmerComponent implements OnInit {
       this.contactNumber.value
     );
     
+    Swal.fire("Farmer Successfuly Added", "Done", "success");
     this.farmerStorageService.storeFarmer(newFarmer).subscribe();
-
     this.addFarmerForm.reset();
   }
 

@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Farmer } from 'src/app/common/farmer';
 import { FarmerStorageService } from 'src/app/services/farmer-storage.service';
 import { FarmerService } from 'src/app/services/farmer.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-search-farmer',
   templateUrl: './search-farmer.component.html',
@@ -50,12 +50,15 @@ export class SearchFarmerComponent implements OnInit {
     this.farmerStorageService.deleteFarmer(this.farmers.at(index)).subscribe();
     this.farmers.splice(index, 1);
     this.farmerService.updateFarmers(this.farmers);
+    Swal.fire("Farmer Successfuly Deleted", "Done", "success");
   }
 
 
 
   onUpdate(index: number) {
     this.router.navigate([`/update/${index}`]);
+    Swal.fire("Farmer Successfuly Updated", "Done", "success");
   }
 
+  
 }
