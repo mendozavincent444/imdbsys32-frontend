@@ -21,12 +21,12 @@ export class FarmerStorageService {
 
   public deleteFarmer(farmer: Farmer) {
     const deleteUrl = `${this.baseUrl}/${farmer.id}`;
-    return this.httpClient.delete(deleteUrl);
+    return this.httpClient.delete(deleteUrl, {responseType: "text"});
   }
 
   public updateFarmer(farmer: Farmer) {
     const updateUrl = `${this.baseUrl}/${farmer.id}`;
-    return this.httpClient.put(updateUrl, farmer);
+    return this.httpClient.put(updateUrl, farmer, {responseType: "text"});
   }
 
   public searchFarmer(searchValue: String) {

@@ -49,10 +49,13 @@ export class UpdateFarmerComponent {
       this.farmerToUpdate.id
     );
 
-    this.farmerStorageService.updateFarmer(updatedFarmer).subscribe();
-
     this.router.navigate(["/search"]);
-    Swal.fire("Farmer Successfully Updated", "Done", "success");
+
+    this.farmerStorageService.updateFarmer(updatedFarmer).subscribe((response) => {
+      Swal.fire(response, "Done", "success");
+    });
+    
+    
   }
 
   public get firstName() {

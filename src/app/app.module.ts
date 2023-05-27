@@ -9,13 +9,17 @@ import { SearchFarmerComponent } from './components/search-farmer/search-farmer.
 import { UpdateFarmerComponent } from './components/update-farmer/update-farmer.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
+import { TodoListComponent } from './components/todo-list/todo-list.component';
+import { AddTaskComponent } from './components/add-task/add-task.component';
 @NgModule({
   declarations: [
     AppComponent,
     CreateFarmerComponent,
     NavbarComponent,
     SearchFarmerComponent,
-    UpdateFarmerComponent
+    UpdateFarmerComponent,
+    TodoListComponent,
+    AddTaskComponent
   ],
   imports: [
     BrowserModule,

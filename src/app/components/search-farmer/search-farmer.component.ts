@@ -25,6 +25,10 @@ export class SearchFarmerComponent implements OnInit {
       search: new FormControl("")
     });
 
+    this.farmerStorageService.fetchFarmers().subscribe((response) => {
+      this.farmerService.farmers$.next(response);
+    });
+
     
   }
 
@@ -40,17 +44,17 @@ export class SearchFarmerComponent implements OnInit {
   }
 
   onLoad() {
-    this.farmerStorageService.fetchFarmers().subscribe((response) => {
-      this.farmers = response;
-      this.farmerService.updateFarmers(response);
-    });
+    this.farmers = this.farmerService.farmers$.getValue();
   }
 
   onDelete(index: number) {
-    this.farmerStorageService.deleteFarmer(this.farmers.at(index)).subscribe();
     this.farmers.splice(index, 1);
     this.farmerService.updateFarmers(this.farmers);
-    Swal.fire("Farmer Successfully Deleted", "Done", "success");
+    this.farmerStorageService.deleteFarmer(this.farmers.at(index)).subscribe((response) => {
+      Swal.fire(response, "Done", "success");
+    });
+    
+    
   }
 
 
