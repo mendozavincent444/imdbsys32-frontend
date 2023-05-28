@@ -19,8 +19,8 @@ export class FarmerStorageService {
     return this.httpClient.get<Farmer[]>(this.baseUrl);    
   }
 
-  public deleteFarmer(farmer: Farmer) {
-    const deleteUrl = `${this.baseUrl}/${farmer.id}`;
+  public deleteFarmer(farmerId: String) {
+    const deleteUrl = `${this.baseUrl}/${farmerId}`;
     return this.httpClient.delete(deleteUrl, {responseType: "text"});
   }
 

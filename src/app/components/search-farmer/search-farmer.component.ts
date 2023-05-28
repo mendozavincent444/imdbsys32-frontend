@@ -48,13 +48,14 @@ export class SearchFarmerComponent implements OnInit {
   }
 
   onDelete(index: number) {
+    
+    const farmerId = this.farmers.at(index).id;
+
     this.farmers.splice(index, 1);
     this.farmerService.updateFarmers(this.farmers);
-    this.farmerStorageService.deleteFarmer(this.farmers.at(index)).subscribe((response) => {
+    this.farmerStorageService.deleteFarmer(farmerId).subscribe((response) => {
       Swal.fire(response, "Done", "success");
-    });
-    
-    
+    });      
   }
 
 
