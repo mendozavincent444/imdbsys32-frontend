@@ -9,11 +9,11 @@ import Swal from 'sweetalert2';
   styleUrls: ['./create-farmer.component.css']
 })
 export class CreateFarmerComponent implements OnInit {
-  
+
   addFarmerForm: FormGroup;
 
 
-  constructor(private farmerStorageService: FarmerStorageService) {}
+  constructor(private farmerStorageService: FarmerStorageService) { }
 
   ngOnInit(): void {
     this.addFarmerForm = new FormGroup({
@@ -33,11 +33,12 @@ export class CreateFarmerComponent implements OnInit {
       this.address.value,
       this.contactNumber.value
     );
-    
-    
-    this.farmerStorageService.storeFarmer(newFarmer).subscribe();
+
     this.addFarmerForm.reset();
-    Swal.fire("Farmer Successfully Added", "Done", "success");
+    this.farmerStorageService.storeFarmer(newFarmer).subscribe((response) => {
+      Swal.fire(response, "Done", "success");
+    });
+
   }
 
   get firstName() {

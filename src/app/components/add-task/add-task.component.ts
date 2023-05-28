@@ -44,12 +44,10 @@ export class AddTaskComponent implements OnInit {
       INITIAL_STATUS
     );
 
-    
-    this.taskStorageService.storeTask(newTask).subscribe();
-
-
     this.addTaskForm.reset();
-    Swal.fire("Task Successfully Added", "Done", "success");
+    this.taskStorageService.storeTask(newTask).subscribe((response) => {
+      Swal.fire(response, "Done", "success");
+    });
   }
 
   get plantName() {

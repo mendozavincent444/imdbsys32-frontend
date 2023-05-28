@@ -12,7 +12,7 @@ export class TaskStorageService {
   constructor(private httpClient: HttpClient) { }
 
   public storeTask(task: Task) {
-    return this.httpClient.post(this.baseUrl, task);
+    return this.httpClient.post(this.baseUrl, task, {responseType: "text"});
   }
 
   public fetchTasks() {

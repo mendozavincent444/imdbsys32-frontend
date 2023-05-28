@@ -12,7 +12,7 @@ export class FarmerStorageService {
   constructor(private httpClient: HttpClient) { }
 
   public storeFarmer(farmer: Farmer) {
-    return this.httpClient.post(this.baseUrl, farmer);
+    return this.httpClient.post(this.baseUrl, farmer, {responseType: "text"});
   }
 
   public fetchFarmers() {
