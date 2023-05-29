@@ -18,10 +18,13 @@ export class TodoListComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.getAllTasks();
+  }
+
+  getAllTasks() {
     this.taskStorageService.fetchTasks().subscribe((response) => {
       this.taskService.updateTasks(response);
     })
-
   }
 
   onLoad() {
@@ -38,17 +41,11 @@ export class TodoListComponent implements OnInit {
   }
 
   onAccept(index: number) {
-
     let taskId = this.tasks.at(index).id;
     this.taskStorageService.acceptTask(taskId).subscribe((response) => {
       Swal.fire(response, "Done", "success");
+      this.getAllTasks();
     });
-
-    this.taskStorageService.fetchTasks().subscribe((response) => {
-      this.tasks = response;
-      this.taskService.updateTasks(response);
-    })
-    
   }
 
 
